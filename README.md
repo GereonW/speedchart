@@ -36,7 +36,7 @@ Preferably you create a new directory where you wish. In there you must create a
 
 ```shell
 mkdir speedchart && cd speedchart
-curl https://github.com/fheinle/speedtest-rrdtool-docker/blob/master/settings.ini.sample > settings.ini
+curl https://github.com/GereonW/speedchart/blob/main/settings.ini > settings.ini
 mkdir data
 ```
 
@@ -181,7 +181,6 @@ max = 10
 avg = 30
 min = 60
 color = 0000FF
-
 ```
 
 ## Built With
@@ -197,6 +196,7 @@ color = 0000FF
 ## Copyright
 
 * **Florian Heinle** - Initial work - [Speedchart](https://github.com/fheinle/speedtest-rrdtool-docker)
-* **Gereon Wolf** - Adding parameters & optical appearance - [This](https://hub.docker.com/r/wolfg/speedchart)
+* **Gereon Wolf** - Adding parameters & optical appearance - [This](https://github.com/GereonW/speedchart)
 
-This project is licensed under the MIT License. [See](https://github.com/fheinle/speedtest-rrdtool-docker#copyright)
+This project is licensed under the MIT License. [See](https://github.com/GereonW/speedchart/blob/main/LICENSE)
+
