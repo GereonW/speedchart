@@ -40,6 +40,17 @@ curl https://github.com/GereonW/speedchart/blob/main/settings.ini > settings.ini
 mkdir data
 ```
 
+### Pull or Build
+
+```shell
+# Pull
+docker pull wolfg/speedchart:latest
+# Build
+docker build -t speedchart:latest .
+```
+
+**Notice:** when building it by hand you need to tag the image yourself. This **inevitably** leads to renaming the image in all necessary commands below.
+
 ### Usage
 
 Now you can run the docker image for the first time with:
@@ -89,7 +100,7 @@ This allows you to change the settings without re-building the container.
 |                              | `frequency` | 20 \| min 1                                                  | Only on first start-up relevant. Delete `./data/speed.rrd` when changing this. Determines how often data points are expected by the database. When `frequency`min * 3 is surpassed without a new entry, the database will mark the entry as missing and add `UNKNOWN`. For further information see [Documentation](https://oss.oetiker.ch/rrdtool/doc/rrdcreate.en.html#DS:ds-name[=mapped-ds-name[[source-index]]]:DST:dst_arguments) at *'heartbeat'* just below [COMPUTE](https://oss.oetiker.ch/rrdtool/doc/rrdcreate.en.html#COMPUTE). |
 | `graph`                      | `width`     | 600                                                          | Width of the graph-image in pixels.                          |
 |                              | `height`    | 200                                                          | A third of the final size. When width=600px then height=200px will make the picture square. |
-|                              | `name`      | graph.png                                                    | Picture name. Use .png as suffix only.                       |
+|                              | `name`      | graph.png                                                    | Picture name. Use '.png' as suffix only.                     |
 |                              | `timeframe` | end-1w \| end-{anynumber}{y\|months\|w\|d\|h\|minutes\|s}    | See the [Documentation](https://oss.oetiker.ch/rrdtool/doc/rrdfetch.en.html#AT-STYLE_TIME_SPECIFICATION) of **RRD** |
 |                              | `max`       | 00FF00                                                       | Colour for the 'Preferable'-line in hex-format (no #)        |
 |                              | `avg`       | FFBB00                                                       | Colour for the 'Average'-line in hex-format (no #)           |
