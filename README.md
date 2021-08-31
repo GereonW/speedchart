@@ -40,6 +40,17 @@ curl https://github.com/GereonW/speedchart/blob/main/settings.ini > settings.ini
 mkdir data
 ```
 
+### Pull or Build
+
+```shell
+# Pull
+docker pull wolfg/speedchart:latest
+# Build
+docker build -t speedchart:latest .
+```
+
+**Notice:** when building it by hand you need to tag the image yourself. This **inevitably** leads to renaming the image in all necessary commands below.
+
 ### Usage
 
 Now you can run the docker image for the first time with:
