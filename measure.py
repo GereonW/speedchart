@@ -48,8 +48,25 @@ def run_speedtest():
     '''perform the ping, download and upload test
 
     return the results as a dict'''
+
     speed_tester = speedtest.Speedtest()
-    speed_tester.get_best_server()
+    for i in range(5):
+        try:
+            best = speed_tester.get_best_server()
+        except Exception as e:
+            pass
+        if best != None:
+            break
+        if i == 4:
+            return dict(
+                timestamp=datetime.datetime.strptime(
+                    datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%S.%fZ'),
+                    '%Y-%m-%dT%H:%M:%S.%fZ'
+                ).replace(tzinfo=tz.tzutc()).astimezone(tz.tzlocal()).timestamp(),
+                download=round(0, 2),
+                upload=round(0, 2),
+                ping=round(0)
+            )
     speed_tester.download()
     speed_tester.upload()
 
@@ -96,7 +113,7 @@ def graph_data_set(data_set, image_fname):
     '''graph the given dataset from the rrd file according to settings'''
     subprocess.run(
         [
-         
+
             'rrdtool', 'graph',
             image_fname,
             '-t {}'.format(SETTINGS[data_set]['title']),
@@ -113,6 +130,7 @@ def graph_data_set(data_set, image_fname):
             '--vertical-label={}'.format(SETTINGS[data_set]['unit']),
             '--force-rules-legend',
             'DEF:{}={}:{}:MAX'.format(data_set, RRD_FNAME, data_set),
+            '--use-nan-for-all-missing-data',
             'LINE1:{}#{}:{}'.format(
                     SETTINGS[data_set]['max'],
                     SETTINGS['graph']['max'],
