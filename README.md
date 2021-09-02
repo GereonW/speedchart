@@ -36,7 +36,7 @@ Preferably you create a new directory where you wish. In there you must create a
 
 ```shell
 mkdir speedchart && cd speedchart
-curl https://github.com/GereonW/speedchart/blob/main/settings.ini > settings.ini
+curl https://raw.githubusercontent.com/GereonW/speedchart/main/settings.ini > settings.ini
 mkdir data
 ```
 
