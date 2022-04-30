@@ -11,7 +11,8 @@ This is a major makeover of Florian Heinle's [Speedchart](https://hub.docker.com
 [Florian Heinle](https://launchpad@planet-tiax.de)
 
 Originals: [Blog-Post](https://blog.florianheinle.de/speedtest-rrdtool-docker), [Docker-Version](https://hub.docker.com/r/fheinle/speedchart), [Git-Version](https://github.com/fheinle/speedtest-rrdtool-docker)
-
+## Preview
+<img src="https://github.com/GereonW/speedchart/blob/main/DSL-Speedchart.png">
 ## Supported tags
 
 * latest
